@@ -21,7 +21,7 @@ function timecountdown(){
     count=${1}-1 # minus 1 needed for first count
     h=$( math_floor ${count} 60/60 )
     count=$((${count}-(60*60*${h})))
-    m=$( math_loor ${count} 60 )
+    m=$( math_floor ${count} 60 )
     s=$((${count}-60*${m}))
     while [ $h -ge 0 ]; do
         while [ $m -ge 0 ]; do
