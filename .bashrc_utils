@@ -1,0 +1,51 @@
+
+###############################################################
+#                     misc math function                      #
+###############################################################
+
+#takes two arguments and finds floor
+function math_floor () {
+  dividend=${1}
+  divisor=${2}
+  res=$(( ( ${dividend} - ( ${dividend} % ${divisor}) )/${divisor} ))
+  echo ${res}
+}
+
+
+
+###############################################################
+#            Show countdown as timestamp HH:MM:SS             #
+###############################################################
+
+function timecountdown(){
+    count=${1}-1 # minus 1 needed for first count
+    h=$( math_floor ${count} 60/60 )
+    count=$((${count}-(60*60*${h})))
+    m=$( math_loor ${count} 60 )
+    s=$((${count}-60*${m}))
+    while [ $h -ge 0 ]; do
+        while [ $m -ge 0 ]; do
+            while [ $s -ge 0 ]; do
+                printf "%02d:%02d:%02d\033[0K\r" $h $m $s
+                s=$((s-1))
+                sleep 1
+            done
+            s=59
+            m=$((m-1))
+        done
+        m=59
+        h=$((h-1))
+    done
+}
+###############################################################
+#            Show simple countdown in seconds                 #
+###############################################################
+
+function countdown() {
+    s=$((5 * 60))
+    while [ $s -gt 0 ]; do
+        echo -ne "$s\033[0K\r"
+        sleep 1
+        : $((s--))
+    done
+}
