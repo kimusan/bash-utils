@@ -42,7 +42,7 @@ function timecountdown(){
 ###############################################################
 
 function countdown() {
-    s=$((5 * 60))
+    s=${1}
     while [ $s -gt 0 ]; do
         echo -ne "$s\033[0K\r"
         sleep 1
