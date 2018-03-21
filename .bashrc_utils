@@ -68,3 +68,12 @@ function hlw(){
 }
 
 
+
+
+###############################################################
+# bash binding start writing a command and use up arrow to    #
+# get to previous commands starting with the same             #
+###############################################################
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
+
