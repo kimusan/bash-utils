@@ -57,6 +57,12 @@ function countdown() {
 ###############################################################
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+###############################################################
+#  show realtime (1sec upd) connection stats for the machine  #
+###############################################################
+alias connections="watch -n 1 -d 'netstat -anp| grep EST'"
+
+
 
 ###############################################################
 # Highlight a specific word in a stream of text input         #
