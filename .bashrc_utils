@@ -62,7 +62,14 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 ###############################################################
 alias connections="watch -n 1 -d 'netstat -anp| grep EST'"
 
-
+###############################################################
+# find specific word in files of a specific type             #
+# Use like so: findin c "int main"                           #
+#    so arg1 = filetype and arg2 = search pattern            #
+###############################################################
+function findin() { 
+    find . -type f -name "*.$1" | xargs ack $2 
+}
 
 ###############################################################
 # Highlight a specific word in a stream of text input         #
